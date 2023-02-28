@@ -24,4 +24,4 @@ fuzzing: fuzz_tests/fuzz.c fuzz_tests/xpath.c fuzz_tests/uri.c fuzz_tests/html.c
 	${CC} ${CFLAGS} ${FUZZ_TEST_CFLAGS} ${FUZZ_TEST_LDFLAGS} -o fuzz_regexp fuzz_tests/regexp.c fuzz_tests/fuzz.c -I_/include/libxml2 -L_/lib -lxml2
 
 cifuzz:
-	cifuzz bundle fuzz_xml --build-command "cd work && ./autogen.sh && ./configure --prefix=$$PWD/_ && make -j8 V=1 && make install && cd .. && make fuzzing" --clean-command "rm -f fuzz_xml fuzz_regexp fuzz_uri fuzz_xml fuzz_xpath && rm -rf _ && cd work; make clean" -v
+	cifuzz bundle fuzz_xml --build-command "cd work && ./autogen.sh && ./configure --prefix=$$PWD/_ && make -j8 V=1 && make install && cd .. && make fuzzing" --clean-command "rm -f fuzz_xml fuzz_regexp fuzz_uri fuzz_xml fuzz_xpath && rm -rf _ && cd work; make clean && cd .." -v
